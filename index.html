@@ -1,1 +1,537 @@
-<h1>Vaibhav's Portfolio Coming Soon!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaibhav Pathak | Discord Architect</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #050505;
+            --purple: #8a2be2;
+            --red: #ff3333;
+            --pink: #ffb6c1;
+            --text-main: #ffffff;
+            --text-muted: #aaaaaa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* Background Glow Effects */
+        .glow-bg {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(150px);
+            z-index: -1;
+        }
+        .glow-1 { top: -100px; left: -100px; background: var(--purple); opacity: 0.5; }
+        .glow-2 { bottom: -100px; right: -100px; background: var(--red); opacity: 0.4; }
+        .glow-3 { top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--pink); opacity: 0.2; }
+
+        /* --- NEW: Balloon Animations & Styles with Text --- */
+        .balloons-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none; /* Allows clicking through balloons */
+            z-index: 0;
+            overflow: hidden;
+        }
+        .balloon {
+            position: absolute;
+            bottom: -200px;
+            width: 80px;  /* Made wider to fit text */
+            height: 100px; /* Made taller */
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            opacity: 0.6; /* Slightly more visible for text */
+            animation: floatUp 12s infinite ease-in;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-family: 'Dancing Script', cursive; /* Signature Font */
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        .balloon::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 10px;
+            border-radius: 50%;
+            background: inherit;
+        }
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -68px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1.5px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.5); /* Thread */
+        }
+        
+        /* Positioning and themes for balloons */
+        .b1 { left: 10%; background: var(--purple); animation-duration: 14s; animation-delay: 0s; }
+        .b2 { left: 30%; background: var(--pink); animation-duration: 11s; animation-delay: 4s; }
+        .b3 { left: 55%; background: var(--red); animation-duration: 16s; animation-delay: 1s; }
+        .b4 { left: 75%; background: var(--purple); animation-duration: 13s; animation-delay: 6s; }
+        .b5 { left: 85%; background: var(--pink); animation-duration: 15s; animation-delay: 2s; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-50vh) rotate(5deg); }
+            100% { transform: translateY(-120vh) rotate(-5deg); }
+        }
+
+        header {
+            text-align: center;
+            padding: 100px 20px 50px;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 4rem;
+            background: linear-gradient(45deg, var(--purple), var(--pink), var(--red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--purple);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--pink);
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--red);
+            padding-left: 15px;
+        }
+
+        /* Achievements */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .achievement-card {
+            background: rgba(20, 20, 20, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 2px solid var(--purple);
+            transition: transform 0.3s;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.2);
+        }
+
+        /* Portfolio Grids */
+        .grid-container {
+            display: grid;
+            gap: 20px;
+        }
+
+        .video-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .photo-grid {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .media-box {
+            background: #111;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            border: 1px solid #333;
+            text-align: center;
+            padding: 10px;
+            transition: 0.3s;
+            cursor: pointer; /* Makes it look clickable */
+        }
+
+        .media-box:hover {
+            border-color: var(--pink);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
+        }
+
+        .video-box { height: 300px; }
+        .photo-box { height: 200px; }
+
+        @media (max-width: 768px) {
+            .video-grid { grid-template-columns: 1fr; }
+            .photo-grid { grid-template-columns: repeat(2, 1fr); }
+            h1 { font-size: 2.5rem; }
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid var(--purple);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn-direct {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, var(--purple), var(--red));
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            transition: 0.3s;
+        }
+
+        .btn-direct:hover {
+            box-shadow: 0 0 15px var(--pink);
+        }
+
+        .qr-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .qr-box {
+            text-align: center;
+        }
+
+        .qr-placeholder {
+            width: 150px;
+            height: 150px;
+            background: #222;
+            border: 2px dashed var(--pink);
+            margin: 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            border-radius: 10px;
+            cursor: pointer; /* Clickable */
+            transition: 0.3s;
+        }
+
+        .qr-placeholder:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+
+        /* Socials */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #1a1a1a;
+            border-radius: 5px;
+            border-bottom: 2px solid var(--purple);
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--purple);
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            border-top: 1px solid #222;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hidden-gem {
+            color: #0a0a0a;
+            font-size: 0.8rem;
+            user-select: none;
+        }
+        .hidden-gem::selection {
+            background: var(--pink);
+            color: var(--bg-color);
+        }
+
+        /* --- NEW: Lightbox (Zoom Preview) Styles --- */
+        .lightbox-overlay {
+            display: none; 
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .lightbox-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .lightbox-content {
+            background: #111;
+            padding: 20px;
+            border: 2px solid var(--purple);
+            border-radius: 10px;
+            max-width: 90vw;
+            max-height: 90vh;
+            min-width: 300px;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 40px rgba(138, 43, 226, 0.4);
+        }
+        .lightbox-overlay.active .lightbox-content {
+            transform: scale(1);
+        }
+        .lightbox-content img, .lightbox-content video {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 5px;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close-btn:hover { color: var(--red); }
+
+    </style>
+</head>
+<body>
+
+    <div class="glow-bg glow-1"></div>
+    <div class="glow-bg glow-2"></div>
+    <div class="glow-bg glow-3"></div>
+
+    <div class="balloons-container">
+        <div class="balloon b1">Phoenix</div>
+        <div class="balloon b2">PV7</div>
+        <div class="balloon b3">Phoenix</div>
+        <div class="balloon b4">PV7</div>
+        <div class="balloon b5">Phoenix</div>
+    </div>
+
+    <header>
+        <h1>Vaibhav Pathak</h1>
+        <p class="subtitle">Master Discord Architect | Creative Visionary</p>
+        <div class="badges">
+            <span class="badge">Professional Video Editor</span>
+            <span class="badge">Game Designer</span>
+            <span class="badge">Live Streamer</span>
+        </div>
+    </header>
+
+    <section id="achievements">
+        <h2>My Achievements</h2>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <h3>Discord Ecosystems</h3>
+                <p>Built and managed automated, highly-structured Discord servers with advanced economy bots.</p>
+            </div>
+            <div class="achievement-card">
+                <h3>Video Editing Pro</h3>
+                <p>High-retention, visually stunning edits using After Effects, CapCut, and Alight Motion.</p>
+            </div>
+            <div class="achievement-card">
+                <h3>Sports & Strategy</h3>
+                <p>A competitive standard badminton player and a highly sharp chess player.</p>
+            </div>
+            <div class="achievement-card">
+                <h3>Gaming & Content</h3>
+                <p>Passionate gamer and an engaging live streamer building a strong community.</p>
+            </div>
+            <div class="achievement-card">
+                <h3>Empathetic Counsellor</h3>
+                <p>A mature counsellor who understands people's problems and offers a better, positive perspective.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>Video Projects</h2>
+        <div class="grid-container video-grid">
+            <div class="media-box video-box">[ Video 1 Space ]</div>
+            <div class="media-box video-box">[ Video 2 Space ]</div>
+            <div class="media-box video-box">[ Video 3 Space ]</div>
+            <div class="media-box video-box">[ Video 4 Space ]</div>
+        </div>
+
+        <h2 style="margin-top: 50px;">Visual Gallery</h2>
+        <div class="grid-container photo-grid">
+            <div class="media-box photo-box">[ Pic 1 ]</div>
+            <div class="media-box photo-box">[ Pic 2 ]</div>
+            <div class="media-box photo-box">[ Pic 3 ]</div>
+            <div class="media-box photo-box">[ Pic 4 ]</div>
+            <div class="media-box photo-box">[ Pic 5 ]</div>
+            <div class="media-box photo-box">[ Pic 6 ]</div>
+            <div class="media-box photo-box">[ Pic 7 ]</div>
+            <div class="media-box photo-box">[ Pic 8 ]</div>
+            <div class="media-box photo-box">[ Pic 9 ]</div>
+            <div class="media-box photo-box">[ Pic 10 ]</div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-section">
+            <h2>Let's Connect & Collaborate</h2>
+            
+            <a href="https://wa.me/YOUR_NUMBER_HERE" class="btn-direct" target="_blank">
+                Directly Contact with Vaibhav (WhatsApp)
+            </a>
+
+            <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                Email: <strong>your.email@gmail.com</strong>
+            </p>
+
+            <div class="qr-container">
+                <div class="qr-box">
+                    <h3>Google Pay</h3>
+                    <div class="qr-placeholder enlarge-target">Insert GPay QR</div>
+                </div>
+                <div class="qr-box">
+                    <h3>PayPal</h3>
+                    <div class="qr-placeholder enlarge-target">Insert PayPal QR</div>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="#">Discord</a>
+                <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
+                <a href="#">Twitch</a>
+                <a href="#">Twitter (X)</a>
+                <a href="#">Reddit</a>
+                <a href="#">Facebook</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Vaibhav Pathak. All rights reserved.</p>
+        <p class="hidden-gem">Rising from the ashes, guided by Phoenix.</p>
+    </footer>
+
+    <div id="lightbox" class="lightbox-overlay">
+        <span class="close-btn">&times;</span>
+        <div id="lightbox-content" class="lightbox-content"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxContent = document.getElementById('lightbox-content');
+            const closeBtn = document.querySelector('.close-btn');
+            // Select all media boxes and QR codes
+            const itemsToEnlarge = document.querySelectorAll('.media-box, .qr-placeholder');
+
+            itemsToEnlarge.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Copy the content of the clicked item into the lightbox
+                    lightboxContent.innerHTML = this.innerHTML;
+                    lightbox.classList.add('active');
+                });
+            });
+
+            // Close when clicking the 'X'
+            closeBtn.addEventListener('click', () => {
+                lightbox.classList.remove('active');
+            });
+
+            // Close when clicking outside the box (in the dark area)
+            lightbox.addEventListener('click', (e) => {
+                if(e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
