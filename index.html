@@ -3,535 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaibhav Pathak | Discord Architect</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-
+    <title>Phoenix Bot | Privacy Policy</title>
     <style>
+        /* Elite Level CSS Variables */
         :root {
-            --bg-color: #050505;
-            --purple: #8a2be2;
-            --red: #ff3333;
-            --pink: #ffb6c1;
-            --text-main: #ffffff;
-            --text-muted: #aaaaaa;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --bg-color: #05081a;
+            --secondary-bg: #0b112d;
+            --accent-bg: #141c47;
+            --text-primary: #ffffff;
+            --text-secondary: #b0c4de;
+            --neon-purple: #8c52ff;
+            --neon-blue: #00d2ff;
+            --border-radius: 12px;
         }
 
         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-main);
-            overflow-x: hidden;
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            overflow-x: hidden; 
         }
 
-        /* Background Glow Effects */
-        .glow-bg {
-            position: fixed;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            filter: blur(150px);
-            z-index: -1;
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative; 
+            z-index: 10;
         }
-        .glow-1 { top: -100px; left: -100px; background: var(--purple); opacity: 0.5; }
-        .glow-2 { bottom: -100px; right: -100px; background: var(--red); opacity: 0.4; }
-        .glow-3 { top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--pink); opacity: 0.2; }
 
-        /* --- NEW: Balloon Animations & Styles with Text --- */
-        .balloons-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none; /* Allows clicking through balloons */
-            z-index: 0;
-            overflow: hidden;
-        }
-        .balloon {
-            position: absolute;
-            bottom: -200px;
-            width: 80px;  /* Made wider to fit text */
-            height: 100px; /* Made taller */
-            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
-            opacity: 0.6; /* Slightly more visible for text */
-            animation: floatUp 12s infinite ease-in;
+        /* Guardian Section - Center aur Upar */
+        .guardian-container {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
-            font-family: 'Dancing Script', cursive; /* Signature Font */
-            font-size: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
-        .balloon::before {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 12px;
-            height: 10px;
-            border-radius: 50%;
-            background: inherit;
-        }
-        .balloon::after {
-            content: '';
-            position: absolute;
-            bottom: -68px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1.5px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.5); /* Thread */
-        }
-        
-        /* Positioning and themes for balloons */
-        .b1 { left: 10%; background: var(--purple); animation-duration: 14s; animation-delay: 0s; }
-        .b2 { left: 30%; background: var(--pink); animation-duration: 11s; animation-delay: 4s; }
-        .b3 { left: 55%; background: var(--red); animation-duration: 16s; animation-delay: 1s; }
-        .b4 { left: 75%; background: var(--purple); animation-duration: 13s; animation-delay: 6s; }
-        .b5 { left: 85%; background: var(--pink); animation-duration: 15s; animation-delay: 2s; }
-
-        @keyframes floatUp {
-            0% { transform: translateY(0) rotate(-5deg); }
-            50% { transform: translateY(-50vh) rotate(5deg); }
-            100% { transform: translateY(-120vh) rotate(-5deg); }
-        }
-
-        header {
-            text-align: center;
-            padding: 100px 20px 50px;
-            border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+            padding-top: 50px;
             position: relative;
-            z-index: 1;
+            z-index: 20;
         }
 
-        h1 {
-            font-size: 4rem;
-            background: linear-gradient(45deg, var(--purple), var(--pink), var(--red));
+        .guardian-photo-wrapper {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            overflow: hidden; 
+            border: 4px solid var(--neon-blue);
+            box-shadow: 0 0 40px rgba(0, 210, 255, 0.5);
+            transition: transform 0.3s ease;
+            background-color: var(--accent-bg); 
+        }
+
+        .guardian-photo-wrapper:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 60px rgba(0, 210, 255, 0.8);
+        }
+
+        .guardian-photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            object-position: center top; 
+        }
+
+        .guardian-text {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: var(--neon-blue);
+            font-weight: bold;
+            letter-spacing: 1px;
+            background-color: rgba(5, 8, 26, 0.8); 
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 210, 255, 0.3);
+        }
+
+        /* Top Header - Privacy Policy */
+        .page-header {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 10px;
+            position: relative;
+            background-image: url('https://cdn.discordapp.com/attachments/1502993084823113750/1504915548448882908/phto-to-anime-68fe58916cfdf09a81be5b9a.png?ex=6a08b952&is=6a0767d2&hm=b7698bf72199a73615a12e239ec49ed43c74bf490b54208c46a538b6e4cd3ad4&'); 
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--neon-purple);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .page-header h1 {
+            font-size: 4.5rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin: 0;
+            background: linear-gradient(135deg, #ffffff, var(--neon-purple), var(--neon-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            text-shadow: 0 0 30px rgba(140, 82, 255, 0.6);
         }
 
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
+        /* Badi Phoenix Photo - Privacy Policy ke theek niche */
+        .phoenix-hero-section {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
         }
 
-        .badges {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
+        .phoenix-hero-section img {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            border-radius: var(--border-radius);
+            border: 2px solid var(--neon-purple);
+            box-shadow: 0 15px 50px rgba(140, 82, 255, 0.4);
+            object-fit: cover;
+            transition: transform 0.4s ease;
         }
 
-        .badge {
-            padding: 8px 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--purple);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: var(--pink);
+        .phoenix-hero-section img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 60px rgba(140, 82, 255, 0.6);
         }
 
-        section {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
+        /* Main Content */
+        .content-section {
+            background-color: var(--secondary-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+            margin-bottom: 60px;
+            border: 1px solid rgba(140, 82, 255, 0.1);
+        }
+
+        .content-section p, .content-section ul {
+            color: var(--text-secondary);
         }
 
         h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            border-left: 4px solid var(--red);
-            padding-left: 15px;
+            font-size: 2rem;
+            color: var(--neon-purple);
+            border-bottom: 2px solid rgba(140, 82, 255, 0.2);
+            padding-bottom: 10px;
+            margin-top: 50px;
+            margin-bottom: 20px;
         }
 
-        /* Achievements */
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
         }
 
-        .achievement-card {
-            background: rgba(20, 20, 20, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            border-top: 2px solid var(--purple);
-            transition: transform 0.3s;
+        ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
         }
 
-        .achievement-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.2);
-        }
-
-        /* Portfolio Grids */
-        .grid-container {
-            display: grid;
-            gap: 20px;
-        }
-
-        .video-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .photo-grid {
-            grid-template-columns: repeat(5, 1fr);
-        }
-
-        .media-box {
-            background: #111;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            border: 1px solid #333;
-            text-align: center;
-            padding: 10px;
-            transition: 0.3s;
-            cursor: pointer; /* Makes it look clickable */
-        }
-
-        .media-box:hover {
-            border-color: var(--pink);
-            transform: scale(1.02);
-            box-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
-        }
-
-        .video-box { height: 300px; }
-        .photo-box { height: 200px; }
-
-        @media (max-width: 768px) {
-            .video-grid { grid-template-columns: 1fr; }
-            .photo-grid { grid-template-columns: repeat(2, 1fr); }
-            h1 { font-size: 2.5rem; }
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: rgba(20, 20, 20, 0.9);
-            border: 1px solid var(--purple);
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .btn-direct {
-            display: inline-block;
-            padding: 15px 30px;
-            background: linear-gradient(45deg, var(--purple), var(--red));
-            color: white;
-            text-decoration: none;
+        ul li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--neon-blue);
             font-weight: bold;
-            border-radius: 30px;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .data-card {
+            background-color: var(--accent-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(0, 210, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .data-card:hover {
+            border-color: var(--neon-blue);
+            transform: translateY(-5px);
+        }
+
+        .data-card h3 {
+            color: var(--neon-blue);
+            margin-top: 0;
             font-size: 1.2rem;
-            margin-bottom: 30px;
-            transition: 0.3s;
         }
 
-        .btn-direct:hover {
-            box-shadow: 0 0 15px var(--pink);
+        /* Udne wale Particles */
+        .background-particles {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1; pointer-events: none; 
         }
 
-        .qr-container {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 30px;
-            flex-wrap: wrap;
+        .particle {
+            position: absolute;
+            background-size: cover;
+            border-radius: 50%;
+            opacity: 0.2; 
+            filter: blur(1px);
+            animation: driftUp 15s linear infinite;
+            background-color: rgba(140, 82, 255, 0.3);
         }
 
-        .qr-box {
-            text-align: center;
-        }
+        /* Yahan sab mein apne Discord wale links dal dena particles ke liye */
+        .p1 { left: 5%; width: 50px; height: 50px; background-image: url('https://cdn.discordapp.com/attachments/1502993084823113750/1504916084921340094/photo-to-anime-68fe56e26cfdf09a81be59f4.png?ex=6a08b9d2&is=6a076852&hm=57b7981809b3b835dbdf4d032aef161e4359d0bb6018c325e71a8776f5be131d&'); animation-duration: 20s; }
+        .p2 { left: 25%; width: 70px; height: 70px; background-image: url('https://cdn.discordapp.com/attachments/1502993084823113750/1504916085290303549/photo-to-anime-68fe61db6cfdf09a81be6cf4.png?ex=6a08b9d2&is=6a076852&hm=6e2eb017181545207f376ef12da271f9a554e722a672402393fe6bac4dcf4f82&'); animation-delay: 2s; animation-duration: 18s; }
+        .p3 { left: 45%; width: 40px; height: 40px; background-image: url('https://cdn.discordapp.com/attachments/1502993084823113750/1504916085953265674/photo-to-anime-68fe625d6cfdf09a81be6e03.png?ex=6a08b9d2&is=6a076852&hm=7bd1b7332220664998f7b999c6918bed38e0cb9998fc3736e144f5d18692a39a&'); animation-delay: 5s; animation-duration: 22s; }
+        .p4 { left: 65%; width: 60px; height: 60px; background-image: url('https://cdn.discordapp.com/attachments/1502993084823113750/1504916104198492260/photo-to-anime-68fe57876cfdf09a81be5a74.png?ex=6a08b9d7&is=6a076857&hm=d773cd10cf78a853b63fc55e17026fe77cdf631cafa545349a4c3ef0ed5a81c5&'); animation-delay: 8s; animation-duration: 15s; }
+        .p5 { left: 85%; width: 80px; height: 80px; background-image: url('https://cdn.discordapp.com/attachments/1502993084823113750/1504916943860269146/WhatsApp_Image_2025-10-18_at_03.17.23_eab4bf67.jpg?ex=6a08ba9f&is=6a07691f&hm=6285f78adc5fa1629177b57221973a48370624cde53a24e36281f539873851ef&'); animation-delay: 1s; animation-duration: 25s; }
 
-        .qr-placeholder {
-            width: 150px;
-            height: 150px;
-            background: #222;
-            border: 2px dashed var(--pink);
-            margin: 10px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            border-radius: 10px;
-            cursor: pointer; /* Clickable */
-            transition: 0.3s;
-        }
-
-        .qr-placeholder:hover {
-            background: #333;
-            transform: scale(1.05);
-        }
-
-        /* Socials */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .social-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            padding: 10px 20px;
-            background: #1a1a1a;
-            border-radius: 5px;
-            border-bottom: 2px solid var(--purple);
-            transition: 0.3s;
-        }
-
-        .social-links a:hover {
-            background: var(--purple);
-            color: white;
+        @keyframes driftUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.2; }
+            90% { opacity: 0.2; }
+            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
         }
 
         footer {
             text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-            border-top: 1px solid #222;
+            padding: 30px 0;
+            color: #7f8fa6;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             position: relative;
-            z-index: 1;
+            z-index: 10;
         }
-
-        .hidden-gem {
-            color: #0a0a0a;
-            font-size: 0.8rem;
-            user-select: none;
-        }
-        .hidden-gem::selection {
-            background: var(--pink);
-            color: var(--bg-color);
-        }
-
-        /* --- NEW: Lightbox (Zoom Preview) Styles --- */
-        .lightbox-overlay {
-            display: none; 
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 9999;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(5px);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .lightbox-overlay.active {
-            display: flex;
-            opacity: 1;
-        }
-        .lightbox-content {
-            background: #111;
-            padding: 20px;
-            border: 2px solid var(--purple);
-            border-radius: 10px;
-            max-width: 90vw;
-            max-height: 90vh;
-            min-width: 300px;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            transform: scale(0.8);
-            transition: transform 0.3s ease;
-            box-shadow: 0 0 40px rgba(138, 43, 226, 0.4);
-        }
-        .lightbox-overlay.active .lightbox-content {
-            transform: scale(1);
-        }
-        .lightbox-content img, .lightbox-content video {
-            max-width: 100%;
-            max-height: 85vh;
-            border-radius: 5px;
-        }
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 40px;
-            font-size: 40px;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .close-btn:hover { color: var(--red); }
-
+        
+        footer a { color: var(--neon-blue); text-decoration: none; }
     </style>
 </head>
 <body>
 
-    <div class="glow-bg glow-1"></div>
-    <div class="glow-bg glow-2"></div>
-    <div class="glow-bg glow-3"></div>
-
-    <div class="balloons-container">
-        <div class="balloon b1">Phoenix</div>
-        <div class="balloon b2">PV7</div>
-        <div class="balloon b3">Phoenix</div>
-        <div class="balloon b4">PV7</div>
-        <div class="balloon b5">Phoenix</div>
+    <div class="background-particles">
+        <div class="particle p1"></div>
+        <div class="particle p2"></div>
+        <div class="particle p3"></div>
+        <div class="particle p4"></div>
+        <div class="particle p5"></div>
     </div>
 
-    <header>
-        <h1>Vaibhav Pathak</h1>
-        <p class="subtitle">Master Discord Architect | Creative Visionary</p>
-        <div class="badges">
-            <span class="badge">Professional Video Editor</span>
-            <span class="badge">Game Designer</span>
-            <span class="badge">Live Streamer</span>
-        </div>
-    </header>
-
-    <section id="achievements">
-        <h2>My Achievements</h2>
-        <div class="achievements-grid">
-            <div class="achievement-card">
-                <h3>Discord Ecosystems</h3>
-                <p>Built and managed automated, highly-structured Discord servers with advanced economy bots.</p>
+    <div class="container">
+        <div class="guardian-container">
+            <div class="guardian-photo-wrapper">
+                <img src="https://cdn.discordapp.com/attachments/1502993084823113750/1504913940574896279/photo-to-anime-68fe68c36cfdf09a81be7851.png?ex=6a08b7d3&is=6a076653&hm=b9884c3444404e03f2252af37f3726866ed49dd644d9e3d21ad06819e94159fc&" alt="Phoenix Guardian">
             </div>
-            <div class="achievement-card">
-                <h3>Video Editing Pro</h3>
-                <p>High-retention, visually stunning edits using After Effects, CapCut, and Alight Motion.</p>
-            </div>
-            <div class="achievement-card">
-                <h3>Sports & Strategy</h3>
-                <p>A competitive standard badminton player and a highly sharp chess player.</p>
-            </div>
-            <div class="achievement-card">
-                <h3>Gaming & Content</h3>
-                <p>Passionate gamer and an engaging live streamer building a strong community.</p>
-            </div>
-            <div class="achievement-card">
-                <h3>Empathetic Counsellor</h3>
-                <p>A mature counsellor who understands people's problems and offers a better, positive perspective.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio">
-        <h2>Video Projects</h2>
-        <div class="grid-container video-grid">
-            <div class="media-box video-box">[ Video 1 Space ]</div>
-            <div class="media-box video-box">[ Video 2 Space ]</div>
-            <div class="media-box video-box">[ Video 3 Space ]</div>
-            <div class="media-box video-box">[ Video 4 Space ]</div>
+            <span class="guardian-text">The Guardian of the Phoenix</span>
         </div>
 
-        <h2 style="margin-top: 50px;">Visual Gallery</h2>
-        <div class="grid-container photo-grid">
-            <div class="media-box photo-box">[ Pic 1 ]</div>
-            <div class="media-box photo-box">[ Pic 2 ]</div>
-            <div class="media-box photo-box">[ Pic 3 ]</div>
-            <div class="media-box photo-box">[ Pic 4 ]</div>
-            <div class="media-box photo-box">[ Pic 5 ]</div>
-            <div class="media-box photo-box">[ Pic 6 ]</div>
-            <div class="media-box photo-box">[ Pic 7 ]</div>
-            <div class="media-box photo-box">[ Pic 8 ]</div>
-            <div class="media-box photo-box">[ Pic 9 ]</div>
-            <div class="media-box photo-box">[ Pic 10 ]</div>
-        </div>
-    </section>
+        <header class="page-header">
+            <h1>Privacy Policy</h1>
+        </header>
 
-    <section id="contact">
-        <div class="contact-section">
-            <h2>Let's Connect & Collaborate</h2>
+        <div class="phoenix-hero-section">
+            <img src="https://cdn.discordapp.com/attachments/1502993084823113750/1504914548153516104/photo-to-anime-68f929726cfdf09a81b7eb17.png?ex=6a08b864&is=6a0766e4&hm=16ea8831b93c2dd1da987d33ba761f96d2a80862e3a787b5b1564d85098014a0&" alt="Phoenix Bot Avatar">
+        </div>
+
+        <main class="content-section">
+            <p><strong>Effective Date:</strong> May 15, 2026<br>
+               <strong>Last Updated:</strong> May 15, 2026</p>
             
-            <p href="https://wa.me/YOUR_NUMBER_HERE" class="btn-direct" target="_blank">
-                Directly Contact with Vaibhav on WhatsApp (+60-1123639318)
-            </p>
+            <p>Welcome to <strong>Phoenix</strong> ("the Bot"). Our primary service is to provide automated, temporary voice channel management for Discord servers. This Privacy Policy explains how we handle data specifically related to the creation, management, and deletion of temporary voice channels. We are committed to a "Privacy by Design" approach, ensuring minimal data collection.</p>
 
-            <p style="font-size: 1.1rem; margin-bottom: 20px;">
-                Email: <strong>vaibhav768717@gmail.com</strong>
-            </p>
+            <h2>1. Data We Collect (Technical Necessity)</h2>
+            <p>To function as a Temporary Voice Channel manager, Phoenix requires access to specific real-time data points. We do <strong>not</strong> collect or store any information that is not essential for this automation.</p>
 
-            <div class="qr-container">
-                <div class="qr-box">
-                    <h3>Google Pay</h3>
-                    <div class="qr-placeholder enlarge-target">Insert GPay QR</div>
+            <div class="data-grid">
+                <div class="data-card">
+                    <h3>Voice State Data</h3>
+                    <p>We monitor when a user joins or leaves a specific "Join to Create" channel. This is used solely to trigger the creation of a new temporary channel or to delete an empty one.</p>
                 </div>
-                <div class="qr-box">
-                    <h3>PayPal</h3>
-                    <div class="qr-placeholder enlarge-target">Insert PayPal QR</div>
+                <div class="data-card">
+                    <h3>User IDs</h3>
+                    <p>We identify the User ID of the person who triggers the channel creation to assign them "Channel Ownership" (permissions to manage their temporary room).</p>
+                </div>
+                <div class="data-card">
+                    <h3>Guild & Channel Data</h3>
+                    <p>We store which server configurations are active (e.g., category for temp channels) and track currently active temporary channels.</p>
                 </div>
             </div>
 
-            <div class="social-links">
-                <a href="#">Discord</a>
-                <a href="#">Instagram</a>
-                <a href="#">YouTube</a>
-                <a href="#">Twitch</a>
-                <a href="#">Twitter (X)</a>
-                <a href="#">Reddit</a>
-                <a href="#">Facebook</a>
-            </div>
-        </div>
-    </section>
+            <h2>2. What We DO NOT Collect (Zero Audio Retention)</h2>
+            <p>As a voice utility bot, we want to be 100% transparent about what we do <strong>not</strong> do:</p>
+            <ul>
+                <li><strong>No Audio Recording:</strong> Phoenix <strong>does not</strong> have the technical capability to record, listen to, or transmit voice audio. Your conversations are private and remain within Discord's encrypted infrastructure.</li>
+                <li><strong>No Message Logging:</strong> We do not read or store text messages from the temporary channels' text-chat features unless a specific moderation command is invoked.</li>
+                <li><strong>No Personal Identity Data:</strong> We do not collect names, emails, or physical locations.</li>
+            </ul>
+
+            <h2>3. How We Use the Data</h2>
+            <p>The ephemeral data collected is used strictly for:</p>
+            <ul>
+                <li><strong>Automation:</strong> Automatically creating a voice channel when a user joins the "Generator" channel.</li>
+                <li><strong>Permission Management:</strong> Granting the "Creator" of the temporary channel the ability to rename, limit, or lock their room.</li>
+                <li><strong>Cleanup:</strong> Automatically deleting the temporary channel once the last user has disconnected to keep your server organized.</li>
+            </ul>
+
+            <h2>4. Data Retention & Ephemeral Storage</h2>
+            <ul>
+                <li><strong>Ephemeral Data:</strong> Most data processed by Phoenix is "In-Memory." This means once a temporary voice channel is deleted, the specific data associated with that session (who created it, when it was created) is purged from our active tracking.</li>
+                <li><strong>Persistent Data:</strong> Only the configuration settings (like the ID of your 'Join to Create' channel) are stored in our secure database to ensure the bot works after a reboot.</li>
+            </ul>
+
+            <h2>5. Information Sharing</h2>
+            <p>We have a strict <strong>No-Sharing</strong> policy.</p>
+            <ul>
+                <li>Your server configurations and user interactions are never sold, traded, or shared with third-party advertisers or data brokers.</li>
+                <li>Data is only disclosed if required by law or to comply with Discord’s Developer Terms of Service.</li>
+            </ul>
+
+            <h2>6. Security Measures</h2>
+            <p>We use industry-standard encryption to protect the connection between Discord and our hosting servers. Access to the bot's database is strictly limited to the lead developer of Phoenix.</p>
+
+            <h2>7. User Control & Rights</h2>
+            <ul>
+                <li><strong>Data Deletion:</strong> If you wish to wipe your server's configuration from our database, simply kick the bot from your server. Our system is designed to prune orphaned data periodically.</li>
+                <li><strong>Opt-out:</strong> By not joining the "Join to Create" channels, users can opt-out of the bot's automated features entirely.</li>
+            </ul>
+
+            <h2>8. Contact & Support</h2>
+            <p>For any questions regarding this Privacy Policy or to report a technical issue, please join our <a href="https://discord.gg/nQmaAwtsSR" target="_blank" style="color: var(--neon-blue); text-decoration: none;"><strong>Official Support Server</strong></a>.</p>
+        </main>
+    </div>
 
     <footer>
-        <p>© 2026 Vaibhav Pathak. All rights reserved.</p>
-        <p class="hidden-gem">Rising from the ashes, guided by Phoenix.</p>
+        <div class="container">
+            <p>&copy; 2026 Phoenix Bot Development Team. All Rights Reserved.</p>
+            <p>Need a website? Contact the Team at <a href="#">The Guardian Support Server</a>.</p>
+        </div>
     </footer>
-
-    <div id="lightbox" class="lightbox-overlay">
-        <span class="close-btn">&times;</span>
-        <div id="lightbox-content" class="lightbox-content"></div>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxContent = document.getElementById('lightbox-content');
-            const closeBtn = document.querySelector('.close-btn');
-            // Select all media boxes and QR codes
-            const itemsToEnlarge = document.querySelectorAll('.media-box, .qr-placeholder');
-
-            itemsToEnlarge.forEach(item => {
-                item.addEventListener('click', function() {
-                    // Copy the content of the clicked item into the lightbox
-                    lightboxContent.innerHTML = this.innerHTML;
-                    lightbox.classList.add('active');
-                });
-            });
-
-            // Close when clicking the 'X'
-            closeBtn.addEventListener('click', () => {
-                lightbox.classList.remove('active');
-            });
-
-            // Close when clicking outside the box (in the dark area)
-            lightbox.addEventListener('click', (e) => {
-                if(e.target === lightbox) {
-                    lightbox.classList.remove('active');
-                }
-            });
-        });
-    </script>
 
 </body>
 </html>
